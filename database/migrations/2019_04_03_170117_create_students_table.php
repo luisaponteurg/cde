@@ -23,7 +23,7 @@ class CreateStudentsTable extends Migration
 
             $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
             $table->foreign('deposit_id')->references('id')->on('deposits')->onDelete('cascade');
-            $table->foreign('modality_id')->references('id')->on('modalitiess')->onDelete('cascade');
+            $table->foreign('modality_id')->references('id')->on('modalities')->onDelete('cascade');
             $table->timestamps();
         });
     }

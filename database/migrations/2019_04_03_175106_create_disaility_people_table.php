@@ -18,7 +18,7 @@ class CreateDisailityPeopleTable extends Migration
             $table->integer('disability_id')->unsigned();
             $table->integer('person_id')->unsigned();
 
-            $table->foreign('disability_id')->references('id')->on('disablities')->onDelete('cascade');
+            $table->foreign('disability_id')->references('id')->on('disabilities')->onDelete('cascade');
             $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
             $table->timestamps();
         });
