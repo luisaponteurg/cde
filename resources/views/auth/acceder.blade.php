@@ -32,11 +32,11 @@
 							<span class="helper-text" data-error="Debe ingresar un correo valido" data-success="right">Ingrese Su Correo Correctamente</span>
 						</div>
 						
-						<div class="input-field col s12">
+						{{-- <div class="input-field col s12">
 							<input id="password" type="password" name="password" required class="validate" value="{{ old('password') }}">
 							<label class="black-text" for="password"> Contraseña</label>
 							<span class="helper-text" data-error="Debe ingresar una contraseña valida" data-success="right">Ingrese Su Contraseña Correctamente</span>
-						</div>
+						</div> --}}
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
