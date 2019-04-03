@@ -9,8 +9,7 @@
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/plantilla.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 	<body class="blue darken-3"><br><br>	<br><br>	
 	<div class="container row">
@@ -88,9 +87,8 @@
 	</div>
 	<!-- /modal -->
 	<!--  Scripts-->
-	<script src="{{ asset('js/jquery-2.1.1.min.js')}}"></script>
-	<script src="{{ asset('js/materialize.js') }}"></script>
-	<script src="{{ asset('js/init.js') }}"></script>
+	<script src="js/app.js"></script>
+    <script src="js/plantilla.js"></script>
 
 	</body>
 </html>
