@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Countrie extends Model
+class Personal extends Model
 {
     protected $fillable = [
-    	'name',
+    	'dependence_id', 'person_id', 
     ];
 }

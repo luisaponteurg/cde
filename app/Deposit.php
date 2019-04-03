@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class Deposit extends Model
 {
     protected $fillable = [
-    	'name', 
+    	'reference_number','bank_id'
     ];
 }

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class Disaility_person extends Model
 {
     protected $fillable = [
-    	'name', 
+    	'disability_id', 'person_id',
     ];
 }
