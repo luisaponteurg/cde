@@ -24,7 +24,7 @@ Route::get('/', function () {
     Route::post('salir', 'Auth\LoginController@logout')->name('logout');
 
     // Registration Routes...
-    Route::get('registrar', 'Auth\RegisterController@showRegistrationForm')->name('registrar');
+    Route::get('registrar', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('registrar', 'Auth\RegisterController@register');
 
     // Password Reset Routes...
@@ -34,4 +34,4 @@ Route::get('/', function () {
     Route::post('contraseña/resetear', 'Auth\ResetPasswordController@reset');
 // RUTAS DE ACCESO
 
-Route::get('/Dace', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
