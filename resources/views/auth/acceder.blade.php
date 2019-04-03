@@ -8,8 +8,11 @@
 
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/plantilla.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 	<body class="blue darken-3"><br><br>	<br><br>	
 	<div class="container row">
@@ -17,7 +20,7 @@
 			<div class="col s12 card-panel hoverable">
 				<br>
 				<div>
-					<img src="img/1.png" height="150">
+					<img class="responsive-img" src="img/1.png" height="150">
 				</div>
 				<form class="col s12" method="POST" action="{{ route('login') }}">
 					{{ csrf_field() }}
