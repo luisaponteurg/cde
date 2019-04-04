@@ -27,7 +27,7 @@ Route::get('/', function () {
 // ADMISTRACION
     // periodos
     Route::group(['prefix'=>'administracion'],function(){
-        
+
         Route::group(['prefix'=>'pre-carga'],function(){
             Route::resource('periodos','PeriodController');
             Route::resource('bancos','BankController');
@@ -36,7 +36,6 @@ Route::get('/', function () {
     });
     // periodos
 // ADMISTRACION
-
 
 // ADMISION
     // persona
