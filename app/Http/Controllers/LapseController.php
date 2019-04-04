@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Lapse;
 use App\Type_lapse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
 
 class LapseController extends Controller
 {
@@ -38,20 +40,20 @@ class LapseController extends Controller
 	public function store(Request $request)
 	{
 		$data = request()->validate([
-			'type_lapses'   	=>  'required',
+			'type_lapse_id'   	=>  'required',
 			'start_date'    	=>  'required',
 			'completion_date'   =>	'required'
 		]);
 
-		if (Request::ajax()) {
-			$lapso = Lapse::created([
-				'start_date'		=>	$data['start_date'],
-				'completion_date'	=>	$data['completion_date'],
-				'type_lapse_id'		=>	$data['type_lapse_id']
-			]);
-		}
+		if (request()->ajax()) {
 
-		return Response()->json($lapso->all());
+			if (Lapse::create($data)) {
+				return Response::json(['info'=>'Creado con exito!'],200);
+			}
+
+		}else{
+			return Response::json(['info'=>'Error!'],400);
+		}
 	}
 
 	/**
@@ -85,7 +87,21 @@ class LapseController extends Controller
 	 */
 	public function update(Request $request, Lapse $lapse)
 	{
-		//
+		$data = request()->validate([
+			'type_lapse_id'   	=>  'required',
+			'start_date'    	=>  'required',
+			'completion_date'   =>	'required'
+		]);
+
+		if (request()->ajax()) {
+
+			if (Lapse::create($data)) {
+				return Response::json(['info'=>'Creado con exito!'],200);
+			}
+
+		}else{
+			return Response::json(['info'=>'Error!'],400);
+		}
 	}
 
 	/**
