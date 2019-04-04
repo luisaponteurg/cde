@@ -7,79 +7,63 @@ use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('admin.period.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+            [
+                'name'     =>  'required',
+                'period'   =>  'required',
+            ]);
+
+        if (Request::ajax()) {
+            $period::create($data);
+            return Response::json(['info'=>'Creado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\period  $period
-     * @return \Illuminate\Http\Response
-     */
     public function show(period $period)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\period  $period
-     * @return \Illuminate\Http\Response
-     */
     public function edit(period $period)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\period  $period
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, period $period)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'    =>  'required',
+            'period'  =>  'required',
+        ]);
+
+        if (Request::ajax()) {
+            $period::update($data);
+            return Response::json(['info'=>'Actualizado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\period  $period
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(period $period)
     {
-        //
-    }
+        if (Request::ajax()) {
+            $period::delete();
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
 }

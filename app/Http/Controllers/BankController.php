@@ -7,79 +7,62 @@ use Illuminate\Http\Request;
 
 class BankController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('admin.bank.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'     =>  'required',
+        ]);
+
+        if (Request::ajax()) {
+            $period::create($data);
+            return Response::json(['info'=>'Creado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
     public function show(Bank $bank)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Bank $bank)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Bank $bank)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'    =>  'required',
+        ]);
+
+        if (Request::ajax()) {
+            $bank::update($data);
+            return Response::json(['info'=>'Actualizado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Bank $bank)
     {
-        //
+        if (Request::ajax()) {
+            $bank::delete();
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 }
