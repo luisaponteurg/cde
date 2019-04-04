@@ -26,9 +26,13 @@ class PeriodController extends Controller
             ]);
 
         if (Request::ajax()) {
+
             $period::create($data);
+
             return Response::json(['info'=>'Creado con exito!'],200);
+
         }else{
+            
             return Response::json(['info'=>'Error!'],400);
         }
     }
