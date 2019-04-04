@@ -38,11 +38,13 @@
 		        data: form,
 		        dataType: 'json',
 		        success: function(data) {
-    		            // console.log('success: '+data);
+    		            console.log('success: '+data);
 		        },
 		        error: function(data) {
 		            var errors = data.responseJSON;
 		        }
 		    });
 		});
+
+	
 </script>
