@@ -31,7 +31,9 @@ Route::get('/', function () {
             Route::resource('lapso', 'LapseController');
             Route::resource('periodos','PeriodController');
             Route::resource('bancos','BankController');
-        }); 
+            Route::resource('modalidades','ModalityController');
+        });
+
     });
 // ADMISTRACION
 

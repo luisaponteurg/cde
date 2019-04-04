@@ -7,79 +7,71 @@ use Illuminate\Http\Request;
 
 class ModalityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $modalidades = Modality::orderBy('id','DESC')->paginate(10);
+        return $modalidades;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'      =>  'required', 
+            'opsu'      =>  'required', 
+            'finished'  =>  'required'
+        ]);
+
+        if (request()->ajax()) {
+
+            if (modality::create($data)) {
+                return Response::json(['info'=>'Creado con exito!'],200);
+            }
+
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Modality  $modality
-     * @return \Illuminate\Http\Response
-     */
     public function show(Modality $modality)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Modality  $modality
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Modality $modality)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modality  $modality
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Modality $modality)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'      =>  'required', 
+            'opsu'      =>  'required', 
+            'finished'  =>  'required'
+        ]);
+
+        if (Request::ajax()) {
+            $modality::update($data);
+            return Response::json(['info'=>'Actualizado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Modality  $modality
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Modality $modality)
     {
-        //
+        if (Request::ajax()) {
+            $modality::delete();
+            return Response::json(['info'=>'Eliminado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 }

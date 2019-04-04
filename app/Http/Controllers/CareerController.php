@@ -7,79 +7,72 @@ use Illuminate\Http\Request;
 
 class CareerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'          =>  'required',
+            'code_internal' =>  'required',
+            'area_id'       =>  'required',
+            'modality_id'   =>  'required'
+        ]);
+
+        if (request()->ajax()) {
+
+            if (Career::create($data)) {
+                return Response::json(['info'=>'Creado con exito!'],200);
+            }
+
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function show(Career $career)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Career $career)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Career $career)
     {
-        //
+        $data = request()->validate(
+        [
+            'name'          =>  'required',
+            'code_internal' =>  'required',
+            'area_id'       =>  'required',
+            'modality_id'   =>  'required'
+        ]);
+
+        if (Request::ajax()) {
+            $career::update($data);
+            return Response::json(['info'=>'Actualizado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Career $career)
     {
-        //
+        if (Request::ajax()) {
+            $career::delete();
+            return Response::json(['info'=>'Eliminado con exito!'],200);
+        }else{
+            return Response::json(['info'=>'Error!'],400);
+        }
     }
 }
