@@ -21,7 +21,7 @@ class TypeLapseSeeder extends Seeder
         	'INTENSIVO',
         	'RECUPERATIVOS',
         	'INTEGRALES',
-        	'MIGRADO',
+        	'MIGRADO'
         ];
 
         foreach ($tls as $key => $value) {
