@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bank;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class BankController extends Controller
 {
@@ -21,12 +22,15 @@ class BankController extends Controller
     {
         $data = request()->validate(
         [
-            'name'     =>  'required',
+            'name'     =>  'required'
         ]);
 
-        if (Request::ajax()) {
-            $period::create($data);
-            return Response::json(['info'=>'Creado con exito!'],200);
+        if (request()->ajax()) {
+
+            if (Period::create($data->all())) {
+                return Response::json(['info'=>'Creado con exito!'],200);
+            }
+
         }else{
             return Response::json(['info'=>'Error!'],400);
         }

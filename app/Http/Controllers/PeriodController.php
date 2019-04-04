@@ -66,4 +66,5 @@ class PeriodController extends Controller
         }else{
             return Response::json(['info'=>'Error!'],400);
         }
+    }
 }
