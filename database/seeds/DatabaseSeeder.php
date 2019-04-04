@@ -12,5 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+       	// Seeder para los lapsos
+       	$this->call(TypeLapseSeeder::class);
     }
 }
