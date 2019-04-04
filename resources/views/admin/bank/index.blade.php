@@ -30,6 +30,7 @@
             var form = $('#form').serialize();
             // console.log(form);
 		    var url = '{{ Route('bancos.store') }}';
+		    console.log(form);
 
 		    $.ajax({
 		        type: 'post',
@@ -37,7 +38,7 @@
 		        data: form,
 		        dataType: 'json',
 		        success: function(data) {
-    		            console.log('success: '+data);
+    		            // console.log('success: '+data);
 		        },
 		        error: function(data) {
 		            var errors = data.responseJSON;

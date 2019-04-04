@@ -22,12 +22,12 @@ class BankController extends Controller
     {
         $data = request()->validate(
         [
-            'name'     =>  'required'
+            'name'     =>  'required',
         ]);
 
         if (request()->ajax()) {
 
-            if (Period::create($data->all())) {
+            if (Bank::create($data)) {
                 return Response::json(['info'=>'Creado con exito!'],200);
             }
 
