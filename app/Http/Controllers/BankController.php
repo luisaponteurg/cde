@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Response;
 
 class BankController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.bank.index');
+        $banks = Bank::all();
+        return $banks;
+        //return view('admin.bank.index');
     }
 
     public function create()
@@ -20,7 +22,10 @@ class BankController extends Controller
 
     public function store(Request $request)
     {
-        $data = request()->validate(
+        $bank = new Bank();
+        $bank->name = $request->name;
+        $bank->save();
+        /*$data = request()->validate(
         [
             'name'     =>  'required',
         ]);
@@ -33,7 +38,7 @@ class BankController extends Controller
 
         }else{
             return Response::json(['info'=>'Error!'],400);
-        }
+        }*/
     }
 
     public function show(Bank $bank)
@@ -46,9 +51,12 @@ class BankController extends Controller
         //
     }
 
-    public function update(Request $request, Bank $bank)
+    public function update(Request $request)
     {
-        $data = request()->validate(
+        $bank = Bank::findOrFail($request->id);
+        $bank->name = $request->name;
+        $bank->save();
+        /*$data = request()->validate(
         [
             'name'    =>  'required',
         ]);
@@ -58,7 +66,7 @@ class BankController extends Controller
             return Response::json(['info'=>'Actualizado con exito!'],200);
         }else{
             return Response::json(['info'=>'Error!'],400);
-        }
+        }*/
     }
 
     public function destroy(Bank $bank)
