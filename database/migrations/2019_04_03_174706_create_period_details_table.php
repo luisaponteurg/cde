@@ -11,9 +11,10 @@ class CreatePeriodDetailsTable extends Migration
         Schema::create('period_details', function (Blueprint $table) {
             $table->increments('id');
             $table->string('period');
-            $table->string('lapse');
+            $table->integer('lapse_id')->unsigned();
             $table->integer('career_headquarter_id')->unsigned();
             
+            $table->foreign('lapse_id')->references('id')->on('lapses')->onDelete('cascade');
             $table->foreign('career_headquarter_id')->references('id')->on('career_headquarters')->onDelete('cascade');
             $table->timestamps();
         });
