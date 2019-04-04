@@ -115,7 +115,7 @@ class LapseController extends Controller
 		if (request()->ajax()) {
 			$bank::delete();
 		}else{
-			return Response::json(['info'=>'Error!'],400)
+			return Response::json(['info'=>'Error!'],400);
 		}
 	}
 }
