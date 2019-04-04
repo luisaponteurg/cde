@@ -72,7 +72,11 @@ class BankController extends Controller
     public function destroy(Bank $bank)
     {
         if (Request::ajax()) {
-            $bank::delete();
+            
+            if ($bank::delete()) {
+                return Response::json(['info'=>'Actualizado con exito!'],200);
+            }
+            
         }else{
             return Response::json(['info'=>'Error!'],400);
         }

@@ -95,8 +95,8 @@ class LapseController extends Controller
 
 		if (request()->ajax()) {
 
-			if (Lapse::create($data)) {
-				return Response::json(['info'=>'Creado con exito!'],200);
+			if ($lapse::update($data)) {
+				return Response::json(['info'=>'Actualizado con exito!'],200);
 			}
 
 		}else{
@@ -112,6 +112,10 @@ class LapseController extends Controller
 	 */
 	public function destroy(Lapse $lapse)
 	{
-		//
+		if (request()->ajax()) {
+			$bank::delete();
+		}else{
+			return Response::json(['info'=>'Error!'],400);
+		}
 	}
 }
