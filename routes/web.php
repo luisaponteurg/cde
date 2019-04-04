@@ -35,3 +35,8 @@ Route::get('/', function () {
 // RUTAS DE ACCESO
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ADMISION
+
+    // persona
+    Route::resource('/admision/persona', 'PersonController');

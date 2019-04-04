@@ -32,15 +32,15 @@
 							<span class="helper-text" data-error="Debe ingresar un correo valido" data-success="right">Ingrese Su Correo Correctamente</span>
 						</div>
 						
-						{{-- <div class="input-field col s12">
+						<div class="input-field col s12">
 							<input id="password" type="password" name="password" required class="validate" value="{{ old('password') }}">
 							<label class="black-text" for="password"> Contraseña</label>
 							<span class="helper-text" data-error="Debe ingresar una contraseña valida" data-success="right">Ingrese Su Contraseña Correctamente</span>
-						</div> --}}
+						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<a class="waves-effect waves-light btn blue darken-4 col s12">Ingresar</a>
+							<button class="waves-effect waves-light btn blue darken-4 col s12">Ingresar</button>
 						</div>
 						<p class="input-field col s12">
 							<a href="#" data-target="modal1" class="modal-trigger">Olvide mi contraseña</a>
@@ -49,7 +49,7 @@
 				</form>
 			</div>
 		</div>
-	<div class="col s7 pull-s6">
+	<div class="col s7 pull-s5">
 	<br><br>
 	<h2 class="header center white-text row le">Universidad Nacional Experimental <br>Rómulo Gallegos</h2>
 	<div class="row center">
