@@ -33,15 +33,15 @@
 									<a href="" data-uk-icon="home"></a>
 								</li>
 								<li class="uk-visible@s">
-									<a href="/profesores/">PROFESOR</a>
+									<a href="/profesores/">PRECARGAR DATOS</a>
 								</li>
 								<li class="uk-visible@s">
-									<a href="/nominas">NOMINA</a></li>
+									<a href="/nominas">ADMISION</a></li>
 								<li class="uk-visible@s">
-									<a href="#">PRECARGAR DATOS</a>
+									<a href="#">MENU3</a>
 								</li>
 								<li class="uk-visible@s">
-									<a href="/usuarios">USUARIO</a>
+									<a href="/usuarios">MENU4</a>
 								</li>
 								<li>
 									<a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon uk-toggle="target: #offcanvas-slide"></a>
