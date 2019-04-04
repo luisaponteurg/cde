@@ -25,23 +25,15 @@ Route::get('/', function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 // ADMISTRACION
-    // periodos
     Route::group(['prefix'=>'administracion'],function(){
 
-        Route::resource('periodos','PeriodController');
-        Route::resource('bancos','BankController');
-        // RUTAS PRUEBAS
         Route::group(['prefix'=>'precargar'],function(){
-            // lapso
             Route::resource('lapso', 'LapseController');
-            // lapso
-        });
-        // RUTAS PRUEBAS
-        
+            Route::resource('periodos','PeriodController');
+            Route::resource('bancos','BankController');
+        }); 
     });
-    // periodos
 // ADMISTRACION
-
 
 // ADMISION
     // persona
