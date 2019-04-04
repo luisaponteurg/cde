@@ -22,8 +22,6 @@ class TypeLapseSeeder extends Seeder
         	'RECUPERATIVOS',
         	'INTEGRALES',
         	'MIGRADO',
-        	'ÁREA DE HUMANIDADES, LETRAS Y ARTES',
-        	'ÁREA DE CIENCIAS VETERINARIAS',
         ];
 
         foreach ($tls as $key => $value) {

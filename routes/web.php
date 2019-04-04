@@ -30,6 +30,13 @@ Route::get('/', function () {
 
         Route::resource('periodos','PeriodController');
         Route::resource('bancos','BankController');
+        // RUTAS PRUEBAS
+        Route::group(['prefix'=>'precargar'],function(){
+            // lapso
+            Route::resource('lapso', 'LapseController');
+            // lapso
+        });
+        // RUTAS PRUEBAS
         
     });
     // periodos
@@ -38,6 +45,8 @@ Route::get('/', function () {
 
 // ADMISION
     // persona
-    Route::resource('/admision/persona', 'PersonController');
+    Route::resource('admision/persona', 'PersonController');
     // persona
 // ADMISION
+
+
